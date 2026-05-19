@@ -206,11 +206,11 @@ class DashboardViewController: UIViewController {
     }
 
     @objc private func addButtonTapped() {
-        // C08에서 구현 예정
-        let alert = UIAlertController(title: "준비 중", message: "구독 추가 기능은 다음 단계에서 구현합니다", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default))
-        present(alert, animated: true)
-    }
+            let addVC = AddSubscriptionViewController()
+            addVC.delegate = self
+            let navVC = UINavigationController(rootViewController: addVC)
+            present(navVC, animated: true)
+        }
 
     // MARK: - 데이터 갱신
     private func reloadData() {
@@ -273,5 +273,12 @@ extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // C11에서 상세 화면 연결 예정
+    }
+}
+
+// MARK: - AddSubscriptionDelegate
+extension DashboardViewController: AddSubscriptionDelegate {
+    func didAddSubscription() {
+        reloadData()
     }
 }
