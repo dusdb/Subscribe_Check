@@ -10,6 +10,7 @@
 		D802602A2FBAAC2700319CF9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80260292FBAAC2700319CF9 /* DashboardViewController.swift */; };
 		D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802602B2FBAAC5400319CF9 /* CategoryViewController.swift */; };
 		D802602E2FBAAC7700319CF9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802602D2FBAAC7700319CF9 /* MapViewController.swift */; };
+		D81D443A2FBC89F6002C2F12 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */; };
 		D8DBFF2E2FB9EAFF00544348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DBFF2D2FB9EAFF00544348 /* AppDelegate.swift */; };
 		D8DBFF302FB9EAFF00544348 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DBFF2F2FB9EAFF00544348 /* SceneDelegate.swift */; };
 		D8DBFF352FB9EAFF00544348 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DBFF332FB9EAFF00544348 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		D80260292FBAAC2700319CF9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		D802602B2FBAAC5400319CF9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		D802602D2FBAAC7700319CF9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		D8DBFF2A2FB9EAFF00544348 /* Subscribe_Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Subscribe_Check.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DBFF2D2FB9EAFF00544348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8DBFF2F2FB9EAFF00544348 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				D802602D2FBAAC7700319CF9 /* MapViewController.swift */,
 				D8FC102D2FBC00D2006A0491 /* Subscription.swift */,
 				D8FC102F2FBC01D1006A0491 /* SubscriptionStore.swift */,
+				D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */,
 			);
 			path = Subscribe_Check;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				D802602A2FBAAC2700319CF9 /* DashboardViewController.swift in Sources */,
 				D8DBFF2E2FB9EAFF00544348 /* AppDelegate.swift in Sources */,
 				D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */,
+				D81D443A2FBC89F6002C2F12 /* SubscriptionCell.swift in Sources */,
 				D8FC10302FBC01D2006A0491 /* SubscriptionStore.swift in Sources */,
 				D8FC102E2FBC00D3006A0491 /* Subscription.swift in Sources */,
 				D8DBFF302FB9EAFF00544348 /* SceneDelegate.swift in Sources */,
