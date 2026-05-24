@@ -10,6 +10,7 @@
 		D802602A2FBAAC2700319CF9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80260292FBAAC2700319CF9 /* DashboardViewController.swift */; };
 		D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802602B2FBAAC5400319CF9 /* CategoryViewController.swift */; };
 		D802602E2FBAAC7700319CF9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802602D2FBAAC7700319CF9 /* MapViewController.swift */; };
+		D813AB5E2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D813AB5D2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift */; };
 		D81D443A2FBC89F6002C2F12 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */; };
 		D81D443C2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D443B2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift */; };
 		D8DBFF2E2FB9EAFF00544348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DBFF2D2FB9EAFF00544348 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		D80260292FBAAC2700319CF9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		D802602B2FBAAC5400319CF9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		D802602D2FBAAC7700319CF9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D813AB5D2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailViewController.swift; sourceTree = "<group>"; };
 		D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		D81D443B2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionViewController.swift; sourceTree = "<group>"; };
 		D8DBFF2A2FB9EAFF00544348 /* Subscribe_Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Subscribe_Check.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				D8FC102F2FBC01D1006A0491 /* SubscriptionStore.swift */,
 				D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */,
 				D81D443B2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift */,
+				D813AB5D2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift */,
 			);
 			path = Subscribe_Check;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8DBFF422FB9F0B100544348 /* AppColors.swift in Sources */,
+				D813AB5E2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift in Sources */,
 				D802602A2FBAAC2700319CF9 /* DashboardViewController.swift in Sources */,
 				D8DBFF2E2FB9EAFF00544348 /* AppDelegate.swift in Sources */,
 				D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */,

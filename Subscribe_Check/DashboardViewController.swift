@@ -272,7 +272,9 @@ extension DashboardViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // C11에서 상세 화면 연결 예정
+        let subscription = activeSubscriptions[indexPath.row]
+        let detailVC = SubscriptionDetailViewController(subscription: subscription)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
