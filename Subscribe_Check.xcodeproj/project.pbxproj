@@ -19,6 +19,8 @@
 		D8DBFF372FB9EB0900544348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8DBFF362FB9EB0900544348 /* Assets.xcassets */; };
 		D8DBFF3A2FB9EB0900544348 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DBFF382FB9EB0900544348 /* LaunchScreen.storyboard */; };
 		D8DBFF422FB9F0B100544348 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DBFF412FB9F0B100544348 /* AppColors.swift */; };
+		D8E5139E2FC6870100CF96EE /* CategoryCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5139D2FC6870100CF96EE /* CategoryCardCell.swift */; };
+		D8E513A02FC6874900CF96EE /* CategoryFilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5139F2FC6874900CF96EE /* CategoryFilterListViewController.swift */; };
 		D8FC102E2FBC00D3006A0491 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC102D2FBC00D2006A0491 /* Subscription.swift */; };
 		D8FC10302FBC01D2006A0491 /* SubscriptionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC102F2FBC01D1006A0491 /* SubscriptionStore.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		D8DBFF392FB9EB0900544348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8DBFF3B2FB9EB0900544348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8DBFF412FB9F0B100544348 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		D8E5139D2FC6870100CF96EE /* CategoryCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardCell.swift; sourceTree = "<group>"; };
+		D8E5139F2FC6874900CF96EE /* CategoryFilterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterListViewController.swift; sourceTree = "<group>"; };
 		D8FC102D2FBC00D2006A0491 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		D8FC102F2FBC01D1006A0491 /* SubscriptionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +91,8 @@
 				D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */,
 				D81D443B2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift */,
 				D813AB5D2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift */,
+				D8E5139D2FC6870100CF96EE /* CategoryCardCell.swift */,
+				D8E5139F2FC6874900CF96EE /* CategoryFilterListViewController.swift */,
 			);
 			path = Subscribe_Check;
 			sourceTree = "<group>";
@@ -162,12 +168,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8DBFF422FB9F0B100544348 /* AppColors.swift in Sources */,
+				D8E5139E2FC6870100CF96EE /* CategoryCardCell.swift in Sources */,
 				D813AB5E2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift in Sources */,
 				D802602A2FBAAC2700319CF9 /* DashboardViewController.swift in Sources */,
 				D8DBFF2E2FB9EAFF00544348 /* AppDelegate.swift in Sources */,
 				D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */,
 				D81D443A2FBC89F6002C2F12 /* SubscriptionCell.swift in Sources */,
 				D81D443C2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift in Sources */,
+				D8E513A02FC6874900CF96EE /* CategoryFilterListViewController.swift in Sources */,
 				D8FC10302FBC01D2006A0491 /* SubscriptionStore.swift in Sources */,
 				D8FC102E2FBC00D3006A0491 /* Subscription.swift in Sources */,
 				D8DBFF302FB9EAFF00544348 /* SceneDelegate.swift in Sources */,
