@@ -207,6 +207,10 @@ class SubscriptionDetailViewController: UIViewController {
         editButton.addTarget(self, action: #selector(editTapped), for: .touchUpInside)
         buttonStack.addArrangedSubview(editButton)
 
+        let aiButton = makeActionButton(title: "AI 한줄 분석", color: UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0))
+                aiButton.addTarget(self, action: #selector(aiAnalysisTapped), for: .touchUpInside)
+                buttonStack.addArrangedSubview(aiButton)
+        
         if subscription.status == .active {
             let cancelButton = makeActionButton(title: "구독 해지", color: AppColors.warning)
             cancelButton.addTarget(self, action: #selector(cancelSubscriptionTapped), for: .touchUpInside)
@@ -318,6 +322,21 @@ class SubscriptionDetailViewController: UIViewController {
         editVC.delegate = self
         let nav = UINavigationController(rootViewController: editVC)
         present(nav, animated: true)
+    }
+    
+    @objc private func aiAnalysisTapped() {
+        let loadingAlert = UIAlertController(title: "AI 분석 중", message: "잠시만 기다려주세요...", preferredStyle: .alert)
+        present(loadingAlert, animated: true)
+
+        GeminiService.shared.analyzeSubscriptions { [weak self] result in
+            loadingAlert.dismiss(animated: true) {
+                guard let self = self else { return }
+                let message = result ?? "분석에 실패했습니다. 네트워크 연결을 확인해주세요."
+                let resultAlert = UIAlertController(title: "AI 분석 결과", message: message, preferredStyle: .alert)
+                resultAlert.addAction(UIAlertAction(title: "확인", style: .default))
+                self.present(resultAlert, animated: true)
+            }
+        }
     }
 
     @objc private func cancelSubscriptionTapped() {

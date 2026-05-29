@@ -245,6 +245,8 @@ class DashboardViewController: UIViewController {
 
         let tableHeight = CGFloat(activeSubscriptions.count) * 80
         tableHeightConstraint?.constant = max(tableHeight, 0)
+        
+        NotificationManager.shared.schedulePaymentReminders()
     }
 }
 
