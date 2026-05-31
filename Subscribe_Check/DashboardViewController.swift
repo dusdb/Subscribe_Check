@@ -31,6 +31,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "대시보드"
+        tabBarItem = UITabBarItem(title: "대시보드", image: UIImage(systemName: "house.fill"), tag: 0)
         view.backgroundColor = AppColors.background
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
@@ -38,9 +39,10 @@ class DashboardViewController: UIViewController {
         setupUI()
         setupTableView()
         setupAddButton()
+        setupWelcomeCard()
         observeStore()
 
-        store.loadSampleData()
+        //store.loadSampleData()
         reloadData()
     }
 
@@ -204,6 +206,54 @@ class DashboardViewController: UIViewController {
             addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
+    
+    private func setupWelcomeCard() {
+        let welcomeCard = UIView()
+        welcomeCard.backgroundColor = AppColors.cardBackground
+        welcomeCard.layer.cornerRadius = 16
+        welcomeCard.layer.shadowColor = UIColor.black.cgColor
+        welcomeCard.layer.shadowOpacity = 0.06
+        welcomeCard.layer.shadowRadius = 6
+        welcomeCard.layer.shadowOffset = CGSize(width: 0, height: 2)
+        welcomeCard.tag = 999
+
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 8
+        stack.alignment = .center
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        welcomeCard.addSubview(stack)
+
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: welcomeCard.topAnchor, constant: 24),
+            stack.leadingAnchor.constraint(equalTo: welcomeCard.leadingAnchor, constant: 24),
+            stack.trailingAnchor.constraint(equalTo: welcomeCard.trailingAnchor, constant: -24),
+            stack.bottomAnchor.constraint(equalTo: welcomeCard.bottomAnchor, constant: -24)
+        ])
+
+        let iconLabel = UILabel()
+        iconLabel.text = "💰"
+        iconLabel.font = .systemFont(ofSize: 48)
+
+        let titleLabel = UILabel()
+        titleLabel.text = "구독을 추가해 보세요"
+        titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        titleLabel.textColor = AppColors.textPrimary
+
+        let descLabel = UILabel()
+        descLabel.text = "아래 + 버튼을 눌러\n사용 중인 구독 서비스를 등록하세요"
+        descLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        descLabel.textColor = AppColors.textSecondary
+        descLabel.textAlignment = .center
+        descLabel.numberOfLines = 0
+
+        stack.addArrangedSubview(iconLabel)
+        stack.addArrangedSubview(titleLabel)
+        stack.addArrangedSubview(descLabel)
+
+        welcomeCard.isHidden = true
+        contentStackView.addArrangedSubview(welcomeCard)
+    }
 
     @objc private func addButtonTapped() {
             let addVC = AddSubscriptionViewController()
@@ -238,8 +288,12 @@ class DashboardViewController: UIViewController {
         }
 
         let isEmpty = activeSubscriptions.isEmpty
-        emptyStateLabel.isHidden = !isEmpty
-        tableView.isHidden = isEmpty
+            emptyStateLabel.isHidden = true
+            tableView.isHidden = isEmpty
+
+        if let welcomeCard = contentStackView.viewWithTag(999) {
+            welcomeCard.isHidden = !isEmpty
+        }
 
         tableView.reloadData()
 

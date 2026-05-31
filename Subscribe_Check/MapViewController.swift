@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "오프라인 지도"
+        tabBarItem = UITabBarItem(title: "지도", image: UIImage(systemName: "map.fill"), tag: 2)
         view.backgroundColor = AppColors.background
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always

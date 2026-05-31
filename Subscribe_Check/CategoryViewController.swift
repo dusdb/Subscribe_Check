@@ -17,6 +17,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "카테고리 분석"
+        tabBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.pie.fill"), tag: 1)
         view.backgroundColor = AppColors.background
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
