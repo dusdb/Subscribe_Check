@@ -14,10 +14,20 @@ class MapViewController: UIViewController {
     private let emptyLabel = UILabel()
     private let store = SubscriptionStore.shared
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        tabBarItem = UITabBarItem(title: "지도", image: UIImage(systemName: "map.fill"), tag: 2)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        tabBarItem = UITabBarItem(title: "지도", image: UIImage(systemName: "map.fill"), tag: 2)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "오프라인 지도"
-        tabBarItem = UITabBarItem(title: "지도", image: UIImage(systemName: "map.fill"), tag: 2)
+        
         view.backgroundColor = AppColors.background
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always

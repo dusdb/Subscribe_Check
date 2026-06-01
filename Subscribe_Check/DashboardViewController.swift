@@ -27,11 +27,22 @@ class DashboardViewController: UIViewController {
     private let store = SubscriptionStore.shared
     private var activeSubscriptions: [Subscription] = []
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        tabBarItem = UITabBarItem(title: "대시보드", image: UIImage(systemName: "house.fill"), tag: 0)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        tabBarItem = UITabBarItem(title: "대시보드", image: UIImage(systemName: "house.fill"), tag: 0)
+    }
+    
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "대시보드"
-        tabBarItem = UITabBarItem(title: "대시보드", image: UIImage(systemName: "house.fill"), tag: 0)
+        
         view.backgroundColor = AppColors.background
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always

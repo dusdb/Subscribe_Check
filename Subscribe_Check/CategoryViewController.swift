@@ -14,10 +14,20 @@ class CategoryViewController: UIViewController {
     private var categoryData: [(category: SubscriptionCategory, subs: [Subscription], total: Int)] = []
     private let store = SubscriptionStore.shared
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        tabBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.pie.fill"), tag: 1)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        tabBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.pie.fill"), tag: 1)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "카테고리 분석"
-        tabBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.pie.fill"), tag: 1)
+        
         view.backgroundColor = AppColors.background
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
