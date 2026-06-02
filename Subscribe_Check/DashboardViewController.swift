@@ -26,6 +26,8 @@ class DashboardViewController: UIViewController {
     // MARK: - 데이터
     private let store = SubscriptionStore.shared
     private var activeSubscriptions: [Subscription] = []
+    
+    private var currentSortMode: Int = 0  // 0: D-Day순, 1: 금액순, 2: 이름순
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -166,11 +168,23 @@ class DashboardViewController: UIViewController {
 
     // MARK: - 테이블 뷰
     private func setupTableView() {
+        let headerStack = UIStackView()
+        headerStack.axis = .vertical
+        headerStack.spacing = 12
+        
         let sectionTitle = UILabel()
         sectionTitle.text = "내 구독 목록"
         sectionTitle.font = .systemFont(ofSize: 20, weight: .bold)
         sectionTitle.textColor = AppColors.textPrimary
-        contentStackView.addArrangedSubview(sectionTitle)
+        headerStack.addArrangedSubview(sectionTitle)
+
+        let sortSegment = UISegmentedControl(items: ["D-day순", "금액순", "이름순"])
+        sortSegment.selectedSegmentIndex = 0
+        sortSegment.addTarget(self, action: #selector(sortChanged(_:)), for: .valueChanged)
+        sortSegment.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 13)], for: .normal)
+        headerStack.addArrangedSubview(sortSegment)
+
+        contentStackView.addArrangedSubview(headerStack)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -265,18 +279,34 @@ class DashboardViewController: UIViewController {
         welcomeCard.isHidden = true
         contentStackView.addArrangedSubview(welcomeCard)
     }
+    
+    @objc private func sortChanged(_ sender: UISegmentedControl) {
+        currentSortMode = sender.selectedSegmentIndex
+        reloadData()
+    }
 
     @objc private func addButtonTapped() {
-            let addVC = AddSubscriptionViewController()
-            addVC.delegate = self
-            let navVC = UINavigationController(rootViewController: addVC)
-            present(navVC, animated: true)
-        }
+        let addVC = AddSubscriptionViewController()
+        addVC.delegate = self
+        let navVC = UINavigationController(rootViewController: addVC)
+        present(navVC, animated: true)
+    }
 
     // MARK: - 데이터 갱신
     private func reloadData() {
-        activeSubscriptions = store.activeSubscriptions.sorted {
-            $0.daysUntilNextBilling < $1.daysUntilNextBilling
+        switch currentSortMode {
+        case 1: // 금액순
+            activeSubscriptions = store.activeSubscriptions.sorted {
+                $0.normalizedMonthlyPrice > $1.normalizedMonthlyPrice
+            }
+        case 2: // 이름순
+            activeSubscriptions = store.activeSubscriptions.sorted {
+                $0.serviceName < $1.serviceName
+            }
+        default: // D-day순
+            activeSubscriptions = store.activeSubscriptions.sorted {
+                $0.daysUntilNextBilling < $1.daysUntilNextBilling
+            }
         }
 
         let formatter = NumberFormatter()
