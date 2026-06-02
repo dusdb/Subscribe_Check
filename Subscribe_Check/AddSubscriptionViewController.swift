@@ -36,6 +36,9 @@ class AddSubscriptionViewController: UIViewController {
     private let offlineSwitch = UISwitch()
     private let addressField = UITextField()
     private let offlineContainer = UIStackView()
+    
+    private var selectedLatitude: Double?
+    private var selectedLongitude: Double?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -155,8 +158,21 @@ class AddSubscriptionViewController: UIViewController {
         offlineContainer.axis = .vertical
         offlineContainer.spacing = 8
         offlineContainer.isHidden = true
+        
+        let searchButton = UIButton(type: .system)
+        searchButton.setTitle("장소 검색하기", for: .normal)
+        searchButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        searchButton.backgroundColor = AppColors.primary
+        searchButton.setTitleColor(.white, for: .normal)
+        searchButton.layer.cornerRadius = 12
+        searchButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        searchButton.addTarget(self, action: #selector(searchPlaceTapped), for: .touchUpInside)
+        offlineContainer.addArrangedSubview(searchButton)
+
+        addressField.isEnabled = false
+        addressField.placeholder = "장소를 검색하면 자동으로 입력됩니다"
         offlineContainer.addArrangedSubview(
-            makeFieldGroup(label: "주소", field: addressField, placeholder: "예: 서울시 강남구 역삼동")
+            makeFieldGroup(label: "선택된 장소", field: addressField, placeholder: "장소를 검색하면 자동으로 입력됩니다")
         )
         formStack.addArrangedSubview(offlineContainer)
     }
@@ -232,6 +248,13 @@ class AddSubscriptionViewController: UIViewController {
     @objc private func offlineToggled() {
         offlineContainer.isHidden = !offlineSwitch.isOn
     }
+    
+    @objc private func searchPlaceTapped() {
+        let searchVC = PlaceSearchViewController()
+        searchVC.delegate = self
+        let nav = UINavigationController(rootViewController: searchVC)
+        present(nav, animated: true)
+    }
 
     // MARK: - 수정 모드: 기존 데이터 채우기
     private func fillFormWith(_ sub: Subscription) {
@@ -286,17 +309,11 @@ class AddSubscriptionViewController: UIViewController {
         let category = SubscriptionCategory.allCases[categorySegment.selectedSegmentIndex]
 
         if offlineSwitch.isOn, let address = addressField.text, !address.isEmpty {
-            let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(address) { [weak self] placemarks, error in
-                guard let self = self else { return }
-                let lat = placemarks?.first?.location?.coordinate.latitude
-                let lon = placemarks?.first?.location?.coordinate.longitude
-                self.saveSubscription(
-                    name: name, price: price, cycle: billingCycle, day: day,
-                    category: category, isOffline: true,
-                    latitude: lat, longitude: lon, address: address
-                )
-            }
+            saveSubscription(
+                name: name, price: price, cycle: billingCycle, day: day,
+                category: category, isOffline: true,
+                latitude: selectedLatitude, longitude: selectedLongitude, address: address
+            )
         } else {
             saveSubscription(
                 name: name, price: price, cycle: billingCycle, day: day,
@@ -351,5 +368,14 @@ class AddSubscriptionViewController: UIViewController {
         let alert = UIAlertController(title: "입력 확인", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default))
         present(alert, animated: true)
+    }
+}
+
+// MARK: - PlaceSearchDelegate
+extension AddSubscriptionViewController: PlaceSearchDelegate {
+    func didSelectPlace(name: String, address: String, latitude: Double, longitude: Double) {
+        addressField.text = "\(name) - \(address)"
+        selectedLatitude = latitude
+        selectedLongitude = longitude
     }
 }

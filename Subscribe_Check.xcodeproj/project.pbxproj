@@ -11,6 +11,7 @@
 		D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802602B2FBAAC5400319CF9 /* CategoryViewController.swift */; };
 		D802602E2FBAAC7700319CF9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802602D2FBAAC7700319CF9 /* MapViewController.swift */; };
 		D813AB5E2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D813AB5D2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift */; };
+		D81876942FCE8EC600BE23C0 /* PlaceSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81876932FCE8EC600BE23C0 /* PlaceSearchViewController.swift */; };
 		D81D443A2FBC89F6002C2F12 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */; };
 		D81D443C2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D443B2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift */; };
 		D8D196562FC96FCC0001EE42 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D196552FC96FCC0001EE42 /* GeminiService.swift */; };
@@ -33,6 +34,7 @@
 		D802602B2FBAAC5400319CF9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		D802602D2FBAAC7700319CF9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D813AB5D2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailViewController.swift; sourceTree = "<group>"; };
+		D81876932FCE8EC600BE23C0 /* PlaceSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewController.swift; sourceTree = "<group>"; };
 		D81D44392FBC89F6002C2F12 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		D81D443B2FBC8CE8002C2F12 /* AddSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionViewController.swift; sourceTree = "<group>"; };
 		D8D196552FC96FCC0001EE42 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D8D196552FC96FCC0001EE42 /* GeminiService.swift */,
 				D8D196572FC970120001EE42 /* NotificationManager.swift */,
 				D8D196592FC971A60001EE42 /* Secrets.plist */,
+				D81876932FCE8EC600BE23C0 /* PlaceSearchViewController.swift */,
 			);
 			path = Subscribe_Check;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				D8E5139E2FC6870100CF96EE /* CategoryCardCell.swift in Sources */,
 				D8D196562FC96FCC0001EE42 /* GeminiService.swift in Sources */,
 				D813AB5E2FC2BD9D0020EDCA /* SubscriptionDetailViewController.swift in Sources */,
+				D81876942FCE8EC600BE23C0 /* PlaceSearchViewController.swift in Sources */,
 				D802602A2FBAAC2700319CF9 /* DashboardViewController.swift in Sources */,
 				D8DBFF2E2FB9EAFF00544348 /* AppDelegate.swift in Sources */,
 				D802602C2FBAAC5400319CF9 /* CategoryViewController.swift in Sources */,
