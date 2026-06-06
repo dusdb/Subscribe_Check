@@ -39,10 +39,22 @@ class DashboardViewController: UIViewController {
         tabBarItem = UITabBarItem(title: "대시보드", image: UIImage(systemName: "house.fill"), tag: 0)
     }
     
+    @objc private func testNotificationTapped() {
+            NotificationManager.shared.scheduleTestNotification()
+            let alert = UIAlertController(title: "알림 예약됨", message: "5초 후 알림이 표시됩니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            present(alert, animated: true)
+        }
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 데모용 테스트 버튼 (촬영 끝나면 삭제)
+                navigationItem.leftBarButtonItem = UIBarButtonItem(
+                    title: "알림 테스트", style: .plain,
+                    target: self, action: #selector(testNotificationTapped)
+                )
         title = "대시보드"
         
         view.backgroundColor = AppColors.background

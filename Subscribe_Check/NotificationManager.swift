@@ -78,4 +78,16 @@ class NotificationManager {
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
+    
+    // 데모/시연용: 5초 뒤 알림 (촬영 끝나면 삭제)
+        func scheduleTestNotification() {
+            let content = UNMutableNotificationContent()
+            content.title = "무료체험 만료 임박"
+            content.body = "무료체험이 내일 종료됩니다. 해지하려면 지금 확인하세요!"
+            content.sound = .default
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "test_demo", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request)
+        }
 }
