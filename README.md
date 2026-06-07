@@ -20,7 +20,7 @@
 
 ## 시연
 
-📹 시연 영상: _(여기에 영상 링크 추가)_
+📹 시연 영상: https://www.youtube.com/watch?v=pu-7uFyOaGI
 
 ---
 
