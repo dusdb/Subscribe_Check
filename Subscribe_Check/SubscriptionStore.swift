@@ -144,17 +144,36 @@ class SubscriptionStore {
     func loadSampleData() {
         guard subscriptions.isEmpty else { return }
 
-        let samples = [
-            Subscription(serviceName: "넷플릭스", monthlyPrice: 17000, billingCycle: .monthly, billingDay: 15, category: .video),
-            Subscription(serviceName: "유튜브 프리미엄", monthlyPrice: 14900, billingCycle: .monthly, billingDay: 1, category: .video),
-            Subscription(serviceName: "스포티파이", monthlyPrice: 10900, billingCycle: .monthly, billingDay: 20, category: .music),
-            Subscription(serviceName: "iCloud+ 200GB", monthlyPrice: 3900, billingCycle: .monthly, billingDay: 5, category: .cloud),
-            Subscription(serviceName: "쿠팡 로켓와우", monthlyPrice: 7890, billingCycle: .monthly, billingDay: 10, category: .delivery),
-            Subscription(serviceName: "헬스장", monthlyPrice: 50000, billingCycle: .monthly, billingDay: 1, category: .fitness, isOffline: true, latitude: 37.5665, longitude: 126.9780, address: "서울시 중구")
-        ]
+        // 넷플릭스 — 40일 미사용으로 설정 (빨간 경고 점 표시)
+        var netflix = Subscription(
+            serviceName: "넷플릭스", monthlyPrice: 17000,
+            billingCycle: .monthly, billingDay: 15, category: .video
+        )
+        netflix.lastUsedDate = Calendar.current.date(byAdding: .day, value: -40, to: Date())
+        addSubscription(netflix)
 
-        for sample in samples {
-            addSubscription(sample)
-        }
+        // 유튜브 프리미엄 — 무료체험 만료 3일 후 설정 (D-3 표시 + 알림 예약)
+        let trialEndDate = Calendar.current.date(byAdding: .day, value: 3, to: Date())
+        let youtube = Subscription(
+            serviceName: "유튜브 프리미엄", monthlyPrice: 14900,
+            billingCycle: .monthly, billingDay: 1, category: .video,
+            isFreeTrial: true, freeTrialEndDate: trialEndDate
+        )
+        addSubscription(youtube)
+
+        // 나머지 샘플
+        let others = [
+            Subscription(serviceName: "스포티파이", monthlyPrice: 10900,
+                         billingCycle: .monthly, billingDay: 20, category: .music),
+            Subscription(serviceName: "iCloud+ 200GB", monthlyPrice: 3900,
+                         billingCycle: .monthly, billingDay: 5, category: .cloud),
+            Subscription(serviceName: "쿠팡 로켓와우", monthlyPrice: 7890,
+                         billingCycle: .monthly, billingDay: 10, category: .delivery),
+            Subscription(serviceName: "헬스장", monthlyPrice: 50000,
+                         billingCycle: .monthly, billingDay: 1, category: .fitness,
+                         isOffline: true, latitude: 37.5665, longitude: 126.9780,
+                         address: "서울시 중구")
+        ]
+        others.forEach { addSubscription($0) }
     }
 }

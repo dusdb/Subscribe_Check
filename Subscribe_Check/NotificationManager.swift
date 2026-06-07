@@ -79,7 +79,7 @@ class NotificationManager {
         UNUserNotificationCenter.current().add(request)
     }
     
-    // 데모/시연용: 5초 뒤 알림 (촬영 끝나면 삭제)
+    // 데모/시연용: 5초 뒤 알림 
         func scheduleTestNotification() {
             let content = UNMutableNotificationContent()
             content.title = "무료체험 만료 임박"

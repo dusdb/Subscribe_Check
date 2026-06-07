@@ -50,11 +50,11 @@ class DashboardViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 데모용 테스트 버튼 (촬영 끝나면 삭제)
-                navigationItem.leftBarButtonItem = UIBarButtonItem(
-                    title: "알림 테스트", style: .plain,
-                    target: self, action: #selector(testNotificationTapped)
-                )
+        // 데모용 테스트 버튼
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "알림 체험", style: .plain,
+            target: self, action: #selector(testNotificationTapped)
+        )
         title = "대시보드"
         
         view.backgroundColor = AppColors.background
